@@ -8,7 +8,7 @@
 
 #ifdef ENA_PHC_SUPPORT
 
-static int ena_phc_adjfreq(struct ptp_clock_info *clock_info, s32 ppb)
+static int ena_phc_adjfine(struct ptp_clock_info *clock_info, long scaled_ppm)
 {
 	return -EOPNOTSUPP;
 }
@@ -109,7 +109,7 @@ static struct ptp_clock_info ena_ptp_clock_info = {
 	.n_ext_ts	= 0,
 	.n_per_out	= 0,
 	.pps		= 0,
-	.adjfreq	= ena_phc_adjfreq,
+	.adjfine	= ena_phc_adjfine,
 	.adjtime	= ena_phc_adjtime,
 #ifdef ENA_PHC_SUPPORT_GETTIME64
 #ifdef ENA_PHC_SUPPORT_GETTIME64_EXTENDED
